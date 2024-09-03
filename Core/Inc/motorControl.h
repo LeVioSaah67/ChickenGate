@@ -12,12 +12,11 @@
 
 #endif /* INC_MOTORCONTROL_H_ */
 
-#define MOTORROTATION_PIN1		2
-#define MOTORROTATION_GPIOBUS1	GPIOA
-#define MOTORROTATION_PIN2		3
-#define MOTORROTATION_GPIOBUS2	GPIOA
+#include <stdint.h>
+#include "main.h"
 
-static void rotateMotor(motorCommand_e command_e);
+
+
 
 typedef enum {
 	noCommand = 0,
@@ -26,3 +25,6 @@ typedef enum {
 
 	motorCommandNB
 } motorCommand_e;
+
+void rotateMotor(motorCommand_e command_e, uint16_t alpha);
+
