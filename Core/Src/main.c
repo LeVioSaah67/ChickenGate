@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "motorControl.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -31,10 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define MOTORROTATION_PIN1		2
-#define MOTORROTATION_GPIOBUS1	GPIOA
-#define MOTORROTATION_PIN2		3
-#define MOTORROTATION_GPIOBUS2	GPIOA
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -47,6 +45,7 @@ TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
 int i = 0;
+int a = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -63,11 +62,13 @@ static void MX_TIM2_Init(void);
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 {
-	i++;
-	if(i == 10000)
-	{
-	i = 0;
-	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
+	if (htim->Instance == TIM2) {
+		++i;
+		if(i == 10000)
+		{
+		i = 0;
+		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
+		}
 	}
 
 }

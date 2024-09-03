@@ -248,6 +248,7 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Hex Build"/>
 		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/Blink_LED_test"/>
 		</configuration>

@@ -12,6 +12,11 @@
 
 #endif /* INC_MOTORCONTROL_H_ */
 
+#define MOTORROTATION_PIN1		2
+#define MOTORROTATION_GPIOBUS1	GPIOA
+#define MOTORROTATION_PIN2		3
+#define MOTORROTATION_GPIOBUS2	GPIOA
+
 static void rotateMotor(motorCommand_e command_e);
 
 typedef enum {
