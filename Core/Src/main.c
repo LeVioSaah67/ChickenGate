@@ -26,13 +26,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-typedef enum {
-	noCommand = 0,
-	clockWise,
-	counterClockWise,
 
-	motorCommandNB
-} motorCommand_e;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -60,35 +54,12 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
-static void rotateMotor(motorCommand_e command_e);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static void rotateMotor(motorCommand_e command_e)
-{
-	switch(command_e)
-	{
-	case noCommand:
-		HAL_GPIO_WritePin(MOTORROTATION_GPIOBUS1, MOTORROTATION_PIN1, 0);
-		HAL_GPIO_WritePin(MOTORROTATION_GPIOBUS2, MOTORROTATION_PIN2, 0);
-		break;
-	case clockWise:
-		HAL_GPIO_WritePin(MOTORROTATION_GPIOBUS1, MOTORROTATION_PIN1, 1);
-		HAL_GPIO_WritePin(MOTORROTATION_GPIOBUS2, MOTORROTATION_PIN2, 0);
-		break;
-	case counterClockWise:
-		HAL_GPIO_WritePin(MOTORROTATION_GPIOBUS1, MOTORROTATION_PIN1, 0);
-		HAL_GPIO_WritePin(MOTORROTATION_GPIOBUS2, MOTORROTATION_PIN2, 1);
-		break;
-	case motorCommandNB:
-	default:
-		HAL_GPIO_WritePin(MOTORROTATION_GPIOBUS1, MOTORROTATION_PIN1, 0);
-		HAL_GPIO_WritePin(MOTORROTATION_GPIOBUS2, MOTORROTATION_PIN2, 0);
-		break;
-	}
-}
+
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 {
